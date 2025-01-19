@@ -1,6 +1,6 @@
 -- What is the total amount each customer spent on Zomato?
 SELECT 	s.userid,
-		SUM(p.price) AS total_amt_spent
+	SUM(p.price) AS total_amt_spent
 FROM sales s
 JOIN product p 
 ON s.product_id=p.product_id
@@ -9,7 +9,7 @@ GROUP BY s.userid;
 
 -- How many days has each customer visited Zomato?
 SELECT 	userid,
-		count(distinct created_date) AS distinct_days
+	count(distinct created_date) AS distinct_days
 FROM sales
 GROUP BY userid;   
 
@@ -23,7 +23,7 @@ a WHERE rnk=1;
 
 -- What is the most purchased item on the menu and how many times was it purchased by all customers?
 SELECT 	userid,
-		COUNT(product_id) AS cnt
+	COUNT(product_id) AS cnt
 FROM sales 
 WHERE product_id = 
 (SELECT product_id FROM sales 
